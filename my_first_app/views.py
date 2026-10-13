@@ -1,4 +1,6 @@
+from django.http import HttpResponse
 from django.shortcuts import render
+
 
 # Create your views here.
 def my_view(request):
@@ -8,8 +10,12 @@ def my_view(request):
         {"name": "Ford"},
     ]
 
-    context = {
-        "cars": cars
-    }
+    context = {"cars": cars}
 
     return render(request, "my_first_app/car_list.html", context)
+
+
+def my_test_view(request, *args, **kwargs):
+    print(args)
+    print(kwargs)
+    return HttpResponse("ok")
