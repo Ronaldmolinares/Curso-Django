@@ -1,0 +1,7 @@
+<ol>
+    {% for product in products %}
+        <li>{{ product.name }} {{ product.price }} {% if product.photo %}<img src="{{ product.photo.url }}" alt="{{ product.name }}" />{% endif %}</li>
+    {% empty %}
+        <li>No hay productos registrados.</li>
+    {% endfor %}
+</ol>
